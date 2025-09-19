@@ -1,4 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
+
+import 'corte_screen.dart';
+import 'desmaio_screen.dart';
+import 'engasgo_screen.dart';
+import 'picada_screen.dart';
+import 'queimadura_screen.dart';
 
 void main() {
   runApp(const PrimeirosSocorrosApp());
@@ -18,6 +25,15 @@ class PrimeirosSocorrosApp extends StatelessWidget {
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
+
+  void _ligarParaSamu() async {
+    final Uri url = Uri(scheme: 'tel', path: '192');
+    if (await canLaunchUrl(url)) {
+      await launchUrl(url);
+    } else {
+      print('Não foi possível realizar a chamada para $url');
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -39,12 +55,31 @@ class HomePage extends StatelessWidget {
                 style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
               ),
               const SizedBox(height: 20),
-
-              _buildOption(Icons.person, "Engasgo"),
-              _buildOption(Icons.bed, "Desmaio"),
-              _buildOption(Icons.local_fire_department, "Queimadura"),
-              _buildOption(Icons.cut, "Corte"),
-              _buildOption(Icons.pest_control, "Picada de Animal"),
+              _buildOption(
+                context,
+                Icons.person,
+                "Engasgo",
+                const EngasgoScreen(),
+              ),
+              _buildOption(
+                context,
+                Icons.bed,
+                "Desmaio",
+                const DesmaioScreen(),
+              ),
+              _buildOption(
+                context,
+                Icons.local_fire_department,
+                "Queimadura",
+                const QueimaduraScreen(),
+              ),
+              _buildOption(context, Icons.cut, "Corte", const CorteScreen()),
+              _buildOption(
+                context,
+                Icons.pest_control,
+                "Picada de Animal",
+                const PicadaAnimalScreen(),
+              ),
 
               const SizedBox(height: 20),
 
@@ -59,7 +94,7 @@ class HomePage extends StatelessWidget {
                     horizontal: 40,
                   ),
                 ),
-                onPressed: () {},
+                onPressed: _ligarParaSamu,
                 icon: const Icon(Icons.local_phone, color: Colors.white),
                 label: const Text(
                   "192",
@@ -73,7 +108,12 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  Widget _buildOption(IconData icon, String text) {
+  Widget _buildOption(
+    BuildContext context,
+    IconData icon,
+    String text,
+    Widget screen,
+  ) {
     return Container(
       margin: const EdgeInsets.symmetric(vertical: 5),
       child: ElevatedButton.icon(
@@ -85,7 +125,12 @@ class HomePage extends StatelessWidget {
           ),
           minimumSize: const Size(double.infinity, 50),
         ),
-        onPressed: () {},
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => screen),
+          );
+        },
         icon: Icon(icon),
         label: Text(text, style: const TextStyle(fontSize: 16)),
       ),
