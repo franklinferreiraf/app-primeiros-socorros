@@ -36,21 +36,18 @@ class PicadaAnimalScreen extends StatelessWidget {
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: 20),
-
-            Image.network(
-              'https://i.imgur.com/8d6xJgE.png',
+            Image.asset(
+              'images/picadadeanimal.png',
               height: 150,
               errorBuilder: (context, error, stackTrace) =>
                   const Icon(Icons.pest_control, size: 150, color: Colors.grey),
             ),
             const SizedBox(height: 30),
-
             const Text(
               'Instruções',
               style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 20),
-
             _buildInstructionStep(
               '1',
               'Lave o local da picada com água e sabão para limpar a ferida e reduzir o risco de infecção.',
@@ -72,7 +69,6 @@ class PicadaAnimalScreen extends StatelessWidget {
               'Procure atendimento médico imediatamente, especialmente se não souber que animal causou a picada, se for picada de cobra, escorpião, aranha ou se a pessoa apresentar reações alérgicas (inchaço no rosto, dificuldade para respirar).',
             ),
             const SizedBox(height: 40),
-
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(

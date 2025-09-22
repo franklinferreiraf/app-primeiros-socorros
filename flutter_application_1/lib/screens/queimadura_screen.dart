@@ -35,9 +35,8 @@ class QueimaduraScreen extends StatelessWidget {
               style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 20),
-
-            Image.network(
-              'https://i.imgur.com/gBGMn5Q.png',
+            Image.asset(
+              'images/queimadura.png',
               height: 150,
               errorBuilder: (context, error, stackTrace) => const Icon(
                 Icons.local_fire_department,
@@ -46,13 +45,11 @@ class QueimaduraScreen extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 30),
-
             const Text(
               'Instruções',
               style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 20),
-
             _buildInstructionStep(
               '1',
               'Resfrie a área afetada colocando-a sob água corrente fria (não gelada) por pelo menos 10 a 15 minutos.',
@@ -74,7 +71,6 @@ class QueimaduraScreen extends StatelessWidget {
               'Ligue para o SAMU (192) se a queimadura for grande (maior que a palma da mão), profunda, ou em áreas sensíveis como rosto, mãos e pés.',
             ),
             const SizedBox(height: 40),
-
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(
