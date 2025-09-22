@@ -45,8 +45,8 @@ class EngasgoScreen extends StatelessWidget {
 
             // Imagem representativa
             // SUBSTITUA 'assets/engasgo_icon.png' pelo caminho da sua imagem
-            Image.network(
-              'https://i.imgur.com/GAYyd2P.png',
+            Image.asset(
+              'images/engasgo.png',
               height: 150,
               errorBuilder: (context, error, stackTrace) =>
                   const Icon(Icons.person_off, size: 150, color: Colors.grey),

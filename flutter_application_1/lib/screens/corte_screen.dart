@@ -35,21 +35,18 @@ class CorteScreen extends StatelessWidget {
               style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 20),
-
-            Image.network(
-              'https://i.imgur.com/kSqp8fH.png',
+            Image.asset(
+              'images/corte.png',
               height: 150,
               errorBuilder: (context, error, stackTrace) =>
                   const Icon(Icons.cut, size: 150, color: Colors.grey),
             ),
             const SizedBox(height: 30),
-
             const Text(
               'Instruções',
               style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 20),
-
             _buildInstructionStep(
               '1',
               'Lave bem as mãos com água e sabão antes de tocar no ferimento para evitar infecções.',
@@ -75,7 +72,6 @@ class CorteScreen extends StatelessWidget {
               'Ligue para o SAMU (192) se o sangramento não parar, o corte for muito profundo, grande ou houver sinais de infecção (vermelhidão, inchaço, pus).',
             ),
             const SizedBox(height: 40),
-
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(

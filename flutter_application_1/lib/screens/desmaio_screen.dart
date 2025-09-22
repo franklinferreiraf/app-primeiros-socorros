@@ -35,9 +35,8 @@ class DesmaioScreen extends StatelessWidget {
               style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 20),
-
-            Image.network(
-              'https://i.imgur.com/2YjAV8G.png',
+            Image.asset(
+              'images/desmaio.png',
               height: 150,
               errorBuilder: (context, error, stackTrace) => const Icon(
                 Icons.airline_seat_flat,
@@ -46,13 +45,11 @@ class DesmaioScreen extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 30),
-
             const Text(
               'Instruções',
               style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 20),
-
             _buildInstructionStep(
               '1',
               'Deite a pessoa de costas em um local seguro e arejado.',
@@ -74,7 +71,6 @@ class DesmaioScreen extends StatelessWidget {
               'Se a pessoa não acordar, não estiver respirando ou tiver se machucado na queda, ligue para o SAMU (192) imediatamente.',
             ),
             const SizedBox(height: 40),
-
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(
