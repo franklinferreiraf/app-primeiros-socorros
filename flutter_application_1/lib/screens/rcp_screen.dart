@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class EngasgoScreen extends StatelessWidget {
-  const EngasgoScreen({super.key});
+class RcpScreen extends StatelessWidget {
+  const RcpScreen({super.key});
 
   void _ligarParaSamu() async {
-    final Uri url = Uri(scheme: 'tel', path: '75991964091');
+    final Uri url = Uri(scheme: 'tel', path: '192');
     if (await canLaunchUrl(url)) {
       await launchUrl(url);
     }
@@ -19,10 +19,16 @@ class EngasgoScreen extends StatelessWidget {
         backgroundColor: const Color(0xFFD32F2F),
         iconTheme: const IconThemeData(color: Colors.white),
         title: const Text(
-          "Engasgo",
+          "RCP - Reanimação Cardiopulmonar",
           style: TextStyle(
               color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),
         ),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.favorite_border, color: Colors.white),
+            onPressed: () {},
+          )
+        ],
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -33,22 +39,29 @@ class EngasgoScreen extends StatelessWidget {
               Container(
                 padding: const EdgeInsets.all(12),
                 decoration: BoxDecoration(
-                  color: const Color(0xFFFFF3E0),
-                  border: Border.all(color: Colors.orange.shade300),
+                  color: const Color(0xFFFFEBEE),
+                  border: Border.all(color: Colors.red.shade200),
                   borderRadius: BorderRadius.circular(8),
                 ),
                 child: Row(
                   children: [
-                    Icon(Icons.warning_amber_rounded,
-                        color: Colors.orange.shade800),
+                    const Icon(Icons.warning_amber_rounded, color: Colors.red),
                     const SizedBox(width: 10),
                     Expanded(
-                      child: Text(
-                        "Se a pessoa não conseguir respirar, tossir ou falar, siga os passos abaixo imediatamente!",
-                        style: TextStyle(
-                            color: Colors.orange.shade900,
-                            fontSize: 13,
-                            fontWeight: FontWeight.bold),
+                      child: RichText(
+                        text: const TextSpan(
+                          style: TextStyle(color: Colors.black87, fontSize: 13),
+                          children: [
+                            TextSpan(
+                                text:
+                                    "RCP é usado em casos de PARADA CARDÍACA. Ligue "),
+                            TextSpan(
+                              text: "192 IMEDIATAMENTE",
+                              style: TextStyle(fontWeight: FontWeight.bold),
+                            ),
+                            TextSpan(text: " antes de iniciar!"),
+                          ],
+                        ),
                       ),
                     ),
                   ],
@@ -56,7 +69,7 @@ class EngasgoScreen extends StatelessWidget {
               ),
               const SizedBox(height: 20),
               const Text(
-                "Manobra de Heimlich - Passo a Passo",
+                "Como fazer RCP (Reanimação Cardiopulmonar)",
                 style: TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
@@ -65,93 +78,102 @@ class EngasgoScreen extends StatelessWidget {
               const SizedBox(height: 16),
               const ExpandableStepCard(
                 number: "1",
-                title: "Posicione-se atrás da pessoa",
+                title: "Verifique a consciência",
                 description:
-                    "Fique em pé atrás da vítima e a abrace pela cintura.",
-                imagePath: "assets/images/engasgo_1.png",
+                    "Chacoalhe os ombros da pessoa e pergunte em voz alta: \"Você está bem?\". Verifique se ela respira normalmente.",
+                imagePath: "assets/images/rcp_1.png",
+                themeColor: Color(0xFFD32F2F),
               ),
               const ExpandableStepCard(
                 number: "2",
-                title: "Feche uma das mãos",
+                title: "Ligue para o SAMU (192)",
                 description:
-                    "Feche o punho com uma mão e posicione acima do umbigo, abaixo do esterno (osso do peito).",
-                imagePath: "assets/images/engasgo_2.png",
+                    "Se a pessoa não responder e não estiver respirando normalmente, ligue IMEDIATAMENTE para o SAMU antes de iniciar as compressões.",
+                imagePath: "assets/images/rcp_2.png",
+                themeColor: Color(0xFFD32F2F),
               ),
               const ExpandableStepCard(
                 number: "3",
-                title: "Cubra com a outra mão",
-                description: "Coloque a outra mão por cima do punho fechado.",
-                imagePath: "assets/images/engasgo_3.png",
+                title: "Posicione a vítima",
+                description:
+                    "Deite a pessoa de costas em uma superfície firme e plana. Ajoelhe-se ao lado do tórax da pessoa.",
+                imagePath: "assets/images/rcp_3.png",
+                themeColor: Color(0xFFD32F2F),
               ),
               const ExpandableStepCard(
                 number: "4",
-                title: "Faça compressões rápidas",
+                title: "Posicione as mãos",
                 description:
-                    "Puxe as mãos com força para dentro e para cima, fazendo movimentos rápidos e secos. Repita até o objeto sair ou a pessoa conseguir respirar.",
-                imagePath: "assets/images/engasgo_4.png",
+                    "Coloque a palma de uma mão no centro do peito (entre os mamilos). Coloque a outra mão sobre a primeira, entrelaçando os dedos.",
+                imagePath: "assets/images/rcp_4.png",
+                themeColor: Color(0xFFD32F2F),
               ),
               const ExpandableStepCard(
                 number: "5",
-                title: "Se não funcionar",
+                title: "Faça as compressões",
                 description:
-                    "Continue até que o objeto seja expelido ou até a chegada do socorro médico. Se a pessoa desmaiar, inicie RCP (reanimação cardiopulmonar).",
-                imagePath: "assets/images/engasgo_5.png",
+                    "Com os braços esticados, empurre o peito para baixo cerca de 5 cm. Faça 30 compressões em ritmo rápido (100-120 por minuto) - pense na música \"Stayin' Alive\".",
+                imagePath: "assets/images/rcp_5.png",
+                themeColor: Color(0xFFD32F2F),
               ),
-              const SizedBox(height: 20),
-              Container(
-                width: double.infinity,
-                padding: const EdgeInsets.all(16),
-                decoration: BoxDecoration(
-                  color: const Color(0xFFE8F5E9),
-                  border: Border.all(color: Colors.green.withOpacity(0.5)),
-                  borderRadius: BorderRadius.circular(12),
-                ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const Row(
-                      children: [
-                        Text(
-                          "👶",
-                          style: TextStyle(fontSize: 20),
-                        ),
-                        SizedBox(width: 8),
-                        Expanded(
-                          child: Text(
-                            "Para bebês (menores de 1 ano)",
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 16,
-                                color: Colors.black87),
-                          ),
-                        ),
-                      ],
-                    ),
-                    const SizedBox(height: 12),
-                    _buildBulletPoint(
-                        "Coloque o bebê de bruços no seu antebraço"),
-                    _buildBulletPoint(
-                        "Dê 5 palmadas firmes nas costas, entre as omoplatas"),
-                    _buildBulletPoint(
-                        "Se não funcionar, vire o bebê e faça 5 compressões no peito com dois dedos"),
-                    _buildBulletPoint("Alterne até o objeto sair"),
-                  ],
-                ),
+              const ExpandableStepCard(
+                number: "6",
+                title: "Ventilações (se souber)",
+                description:
+                    "Se souber, após 30 compressões, faça 2 ventilações boca a boca. Se não souber, continue apenas as compressões sem parar.",
+                imagePath: "assets/images/rcp_6.png",
+                themeColor: Color(0xFFD32F2F),
               ),
-              const SizedBox(height: 20),
+              const ExpandableStepCard(
+                number: "7",
+                title: "Continue até a ajuda chegar",
+                description:
+                    "Continue o ciclo (30 compressões + 2 ventilações) até que: a pessoa volte a respirar, o SAMU chegue, ou você fique extremamente cansado.",
+                imagePath: "assets/images/rcp_7.png",
+                themeColor: Color(0xFFD32F2F),
+              ),
+              const SizedBox(height: 10),
+              const _InfoCard(
+                backgroundColor: Color(0xFFFFEBEE),
+                borderColor: Colors.red,
+                icon: Icons.close,
+                iconColor: Colors.red,
+                title: "O que NÃO fazer",
+                items: [
+                  "Não faça RCP em quem está respirando normalmente",
+                  "Não tenha medo de machucar - é melhor tentar do que não fazer nada",
+                  "Não pare as compressões por mais de 10 segundos",
+                  "Não comprima o estômago ou as costelas",
+                ],
+              ),
+              const SizedBox(height: 16),
+              const _InfoCard(
+                backgroundColor: Color(0xFFE8F5E9),
+                borderColor: Colors.green,
+                icon: Icons.lightbulb_outline,
+                iconColor: Colors.orange,
+                title: "Informações importantes",
+                items: [
+                  "RCP só deve ser feita em quem NÃO está respirando",
+                  "Se houver um DEA (desfibrilador) disponível, peça para alguém buscar",
+                  "Continue até que profissionais cheguem ou a pessoa volte a respirar",
+                  "É normal ouvir estalos nas costelas - não pare por isso",
+                ],
+              ),
+              const SizedBox(height: 24),
               Container(
                 width: double.infinity,
                 padding: const EdgeInsets.all(16),
                 decoration: BoxDecoration(
                   color: const Color(0xFFFFEBEE),
-                  border: Border.all(color: Colors.red.shade200),
                   borderRadius: BorderRadius.circular(12),
+                  border: Border.all(color: Colors.red.shade200),
                 ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const Text(
-                      "Situação grave?",
+                      "Precisa de ajuda?",
                       style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 16,
@@ -169,12 +191,11 @@ class EngasgoScreen extends StatelessWidget {
                         style: ElevatedButton.styleFrom(
                           backgroundColor: const Color(0xFFD32F2F),
                           shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(12),
+                            borderRadius: BorderRadius.circular(8),
                           ),
                         ),
                         onPressed: _ligarParaSamu,
-                        icon: const Icon(Icons.phone_in_talk,
-                            color: Colors.white),
+                        icon: const Icon(Icons.phone, color: Colors.white),
                         label: const Text(
                           "Ligar para SAMU 192",
                           style: TextStyle(
@@ -187,29 +208,78 @@ class EngasgoScreen extends StatelessWidget {
                   ],
                 ),
               ),
-              const SizedBox(height: 30),
+              const SizedBox(height: 20),
             ],
           ),
         ),
       ),
     );
   }
+}
 
-  Widget _buildBulletPoint(String text) {
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 6),
-      child: Row(
+class _InfoCard extends StatelessWidget {
+  final Color backgroundColor;
+  final Color borderColor;
+  final IconData icon;
+  final Color iconColor;
+  final String title;
+  final List<String> items;
+
+  const _InfoCard({
+    required this.backgroundColor,
+    required this.borderColor,
+    required this.icon,
+    required this.iconColor,
+    required this.title,
+    required this.items,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: double.infinity,
+      padding: const EdgeInsets.all(16),
+      decoration: BoxDecoration(
+        color: backgroundColor,
+        border: Border.all(color: borderColor.withOpacity(0.5)),
+        borderRadius: BorderRadius.circular(12),
+      ),
+      child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text("• ",
-              style: TextStyle(
-                  fontWeight: FontWeight.bold, color: Colors.black54)),
-          Expanded(
-            child: Text(
-              text,
-              style: const TextStyle(color: Colors.black54, height: 1.3),
-            ),
+          Row(
+            children: [
+              Icon(icon, color: iconColor, size: 24),
+              const SizedBox(width: 8),
+              Text(
+                title,
+                style: const TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 16,
+                    color: Colors.black87),
+              ),
+            ],
           ),
+          const SizedBox(height: 12),
+          ...items.map((item) => Padding(
+                padding: const EdgeInsets.only(bottom: 6),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Text("• ",
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black54)),
+                    Expanded(
+                      child: Text(
+                        item,
+                        style:
+                            const TextStyle(color: Colors.black54, height: 1.3),
+                      ),
+                    ),
+                  ],
+                ),
+              )),
         ],
       ),
     );
@@ -221,6 +291,7 @@ class ExpandableStepCard extends StatefulWidget {
   final String title;
   final String description;
   final String? imagePath;
+  final Color themeColor;
 
   const ExpandableStepCard({
     super.key,
@@ -228,6 +299,7 @@ class ExpandableStepCard extends StatefulWidget {
     required this.title,
     required this.description,
     this.imagePath,
+    required this.themeColor,
   });
 
   @override
@@ -255,8 +327,8 @@ class _ExpandableStepCardState extends State<ExpandableStepCard> {
                 Container(
                   width: 32,
                   height: 32,
-                  decoration: const BoxDecoration(
-                    color: Color(0xFFD32F2F),
+                  decoration: BoxDecoration(
+                    color: widget.themeColor,
                     shape: BoxShape.circle,
                   ),
                   child: Center(
@@ -308,7 +380,7 @@ class _ExpandableStepCardState extends State<ExpandableStepCard> {
                       Text(
                         _isExpanded ? "Ocultar ilustração" : "Ver ilustração",
                         style: TextStyle(
-                            color: Colors.red.shade700,
+                            color: widget.themeColor,
                             fontWeight: FontWeight.bold,
                             fontSize: 13),
                       ),
@@ -317,7 +389,7 @@ class _ExpandableStepCardState extends State<ExpandableStepCard> {
                         _isExpanded
                             ? Icons.keyboard_arrow_up_rounded
                             : Icons.keyboard_arrow_down_rounded,
-                        color: Colors.red.shade700,
+                        color: widget.themeColor,
                         size: 20,
                       ),
                     ],
