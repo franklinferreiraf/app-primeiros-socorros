@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-// Seus imports das telas (garanta que os arquivos existem na pasta lib)
 import 'screens/corte_screen.dart';
 import 'screens/desmaio_screen.dart';
 import 'screens/engasgo_screen.dart';
@@ -36,7 +35,6 @@ class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
   void _ligarParaSamu() async {
-    // Seu número configurado para a apresentação
     final Uri url = Uri(scheme: 'tel', path: '75991964091');
     if (await canLaunchUrl(url)) {
       await launchUrl(url);
@@ -83,10 +81,6 @@ class HomePage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const SizedBox(height: 10),
-
-            // --- CARDS DO MENU ---
-
-            // 1. Engasgo (Vermelho)
             HoverableCard(
               title: "Engasgo",
               icon: Icons.no_food_outlined,
@@ -94,7 +88,6 @@ class HomePage extends StatelessWidget {
               bgColor: Colors.red.shade50,
               destination: const EngasgoScreen(),
             ),
-            // 2. Desmaio (Laranja)
             HoverableCard(
               title: "Desmaio",
               icon: Icons.person_outline,
@@ -102,7 +95,6 @@ class HomePage extends StatelessWidget {
               bgColor: Colors.orange.shade50,
               destination: const DesmaioScreen(),
             ),
-            // 3. Queimadura (Vermelho)
             HoverableCard(
               title: "Queimadura",
               icon: Icons.local_fire_department_outlined,
@@ -110,7 +102,6 @@ class HomePage extends StatelessWidget {
               bgColor: Colors.red.shade50,
               destination: const QueimaduraScreen(),
             ),
-            // 4. Picada (Laranja)
             HoverableCard(
               title: "Picada de Animal",
               icon: Icons.pest_control,
@@ -118,7 +109,6 @@ class HomePage extends StatelessWidget {
               bgColor: Colors.orange.shade50,
               destination: const PicadaAnimalScreen(),
             ),
-            // 5. Corte (Vermelho)
             HoverableCard(
               title: "Corte",
               icon: Icons.water_drop_outlined,
@@ -126,7 +116,6 @@ class HomePage extends StatelessWidget {
               bgColor: Colors.red.shade50,
               destination: const CorteScreen(),
             ),
-            // 6. RCP (Laranja/Amarelo)
             HoverableCard(
               title: "RCP (Parada Cardíaca)",
               icon: Icons.favorite_border,
@@ -134,7 +123,6 @@ class HomePage extends StatelessWidget {
               bgColor: Colors.orange.shade50,
               destination: const RcpScreen(),
             ),
-            // 7. Estabelecimentos (Vermelho)
             HoverableCard(
               title: "Estabelecimentos Próximos",
               icon: Icons.location_on_outlined,
@@ -142,10 +130,7 @@ class HomePage extends StatelessWidget {
               bgColor: Colors.red.shade50,
               destination: const EstabelecimentosScreen(),
             ),
-
             const SizedBox(height: 30),
-
-            // --- RODAPÉ ---
             Container(
               padding: const EdgeInsets.all(20),
               decoration: BoxDecoration(
@@ -215,7 +200,6 @@ class HomePage extends StatelessWidget {
   }
 }
 
-// Widget do Card com Hover
 class HoverableCard extends StatefulWidget {
   final String title;
   final IconData icon;
