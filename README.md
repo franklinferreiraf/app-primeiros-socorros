@@ -33,7 +33,9 @@ O aplicativo conta com guias interativos passo a passo para as seguintes emergê
 
 Você pode acessar a versão Web do aplicativo diretamente pelo navegador do seu celular ou computador:
 
-👉 **[Acessar App Online (Netlify)](https://sos-saude.netlify.app/) - [https://github.com/franklinferreiraf/app-primeiros-socorros.git]**
+👉 **[Acessar App Online (Netlify)](https://sos-saude.netlify.app/)**
+
+🔗 **[Acessar Repositório no GitHub](https://github.com/franklinferreiraf/app-primeiros-socorros)**
 
 *(Recomendado: Adicione à tela inicial do celular para uma experiência de aplicativo nativo)*
 
@@ -43,19 +45,14 @@ Você pode acessar a versão Web do aplicativo diretamente pelo navegador do seu
 
 | Menu Principal | Engasgo | Desmaio | Queimadura |
 |:---:|:---:|:---:|:---:|
-| <img src="./assets/prints/menu.png" width="180"> | <img src="./assets/prints/engasgo.png" width="180"> | <img src="./assets/prints/desmaio.png" width="180"> | <img src="./assets/prints/queimadura.png" width="180"> |
+| <img src="flutter_application_1/assets/prints/menu.png" width="180"> | <img src="flutter_application_1/assets/prints/engasgo.png" width="180"> | <img src="flutter_application_1/assets/prints/desmaio.png" width="180"> | <img src="flutter_application_1/assets/prints/queimadura.png" width="180"> |
 
 | Picada de Animal | Corte | RCP | Estabelecimentos |
 |:---:|:---:|:---:|:---:|
-| <img src="./assets/prints/picadadeanimal.png" width="180"> | <img src="./assets/prints/corte.png" width="180"> | <img src="./assets/prints/rpc.png" width="180"> | <img src="./assets/prints/estabelecimento.png" width="180"> |
-=======
-| <img src="assets/prints/menu.png" width="180"> | <img src="assets/prints/engasgo.png" width="180"> | <img src="assets/prints/desmaio.png" width="180"> | <img src="assets/prints/queimadura.png" width="180"> |
-
-| Picada de Animal | Corte | RCP | Estabelecimentos |
-|:---:|:---:|:---:|:---:|
-| <img src="assets/prints/picadadeanimal.png" width="180"> | <img src="assets/prints/corte.png" width="180"> | <img src="assets/prints/rpc.png" width="180"> | <img src="assets/prints/estabelecimento.png" width="180"> |
+| <img src="flutter_application_1/assets/prints/picadadeanimal.png" width="180"> | <img src="flutter_application_1/assets/prints/corte.png" width="180"> | <img src="flutter_application_1/assets/prints/rpc.png" width="180"> | <img src="flutter_application_1/assets/prints/estabelecimento.png" width="180"> |
 
 > *Dica: As imagens acima demonstram a interface visual do aplicativo.*
+
 ---
 
 ## 🚀 Como Rodar o Projeto Localmente
@@ -77,6 +74,7 @@ Siga os passos abaixo para executar o código na sua máquina.
 2.  **Entre na pasta do projeto:**
     ```bash
     cd app-primeiros-socorros
+    cd flutter_application_1
     ```
 
 3.  **Instale as dependências:**
@@ -98,3 +96,4 @@ Siga os passos abaixo para executar o código na sua máquina.
 Para gerar os arquivos estáticos para hospedagem (como no Netlify):
 
 ```bash
+flutter build web --release --web-renderer html
