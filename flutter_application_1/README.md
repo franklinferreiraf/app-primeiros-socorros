@@ -43,13 +43,11 @@ Você pode acessar a versão Web do aplicativo diretamente pelo navegador do seu
 
 | Menu Principal | Engasgo | Desmaio | Queimadura |
 |:---:|:---:|:---:|:---:|
-| <img src="assets/prints/menu.png" width="180"> | <img src="assets/prints/engasgo.png" width="180"> | <img src="assets/prints/desmaio.png" width="180"> | <img src="assets/prints/queimadura.png" width="180"> |
+| <img src="./assets/prints/menu.png" width="180"> | <img src="./assets/prints/engasgo.png" width="180"> | <img src="./assets/prints/desmaio.png" width="180"> | <img src="./assets/prints/queimadura.png" width="180"> |
 
 | Picada de Animal | Corte | RCP | Estabelecimentos |
 |:---:|:---:|:---:|:---:|
-| <img src="assets/prints/picadadeanimal.png" width="180"> | <img src="assets/prints/corte.png" width="180"> | <img src="assets/prints/rpc.png" width="180"> | <img src="assets/prints/estabelecimento.png" width="180"> |
-
-> *Dica: As imagens acima demonstram a interface visual do aplicativo.*
+| <img src="./assets/prints/picadadeanimal.png" width="180"> | <img src="./assets/prints/corte.png" width="180"> | <img src="./assets/prints/rpc.png" width="180"> | <img src="./assets/prints/estabelecimento.png" width="180"> |
 
 ---
 
